@@ -1,0 +1,59 @@
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.akexorcist.testdoubleinjection.koin"
+        minSdk 23
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+    // Workaround for JVM issue in MockK (downgrade from 1.12.3 from 1.12.4 is required)
+    // See https://github.com/mockk/mockk/issues/297#issuecomment-901924678
+    testOptions {
+        packagingOptions {
+            jniLibs {
+                useLegacyPackaging true
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation "androidx.test:core-ktx:1.4.0"
+    androidTestImplementation "androidx.test:runner:1.4.0"
+    androidTestImplementation "androidx.test:rules:1.4.0"
+    androidTestImplementation "androidx.test.ext:junit-ktx:1.1.3"
+    androidTestImplementation "androidx.test.ext:truth:1.4.0"
+
+    // There's an issue about JVM in v1.12.4
+    // See https://github.com/mockk/mockk/issues/297#issuecomment-901924678
+    testImplementation "io.mockk:mockk:1.12.3"
+    androidTestImplementation "io.mockk:mockk-android:1.12.3"
+}

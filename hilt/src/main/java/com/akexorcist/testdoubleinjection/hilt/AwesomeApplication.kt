@@ -6,11 +6,15 @@ import javax.inject.Inject
 
 @HiltAndroidApp
 class AwesomeApplication : Application() {
+//    @Inject
+//    lateinit var tracker: ActivityTracker
+
     @Inject
-    lateinit var tracker: ActivityTracker
+    lateinit var appActivityLifecycleCallbacks: AppActivityLifecycleCallbacks
 
     override fun onCreate() {
         super.onCreate()
-        tracker.init(this)
+        registerActivityLifecycleCallbacks(appActivityLifecycleCallbacks)
+//        tracker.init(this)
     }
 }

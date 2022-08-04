@@ -15,7 +15,7 @@ class TestAwesomeApplication : Application() {
     }
 }
 
-@CustomTestApplication(TestAwesomeApplication::class)
+//@CustomTestApplication(TestAwesomeApplication::class)
 interface CustomTestApplication
 
 

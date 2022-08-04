@@ -9,8 +9,8 @@ apply from: "${project.rootDir}/shared-build.gradle"
 android {
     defaultConfig {
         applicationId "com.akexorcist.testdoubleinjection.hilt"
-//        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        testInstrumentationRunner "com.akexorcist.testdoubleinjection.hilt.HiltTestRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+//        testInstrumentationRunner "com.akexorcist.testdoubleinjection.hilt.HiltTestRunner"
     }
 }
 

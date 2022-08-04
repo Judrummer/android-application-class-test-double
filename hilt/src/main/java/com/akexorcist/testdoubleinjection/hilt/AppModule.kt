@@ -13,6 +13,10 @@ class AppModule {
     @Provides
     fun provideActivityTracker(timer: UserSessionTimer) = ActivityTracker(timer)
 
+    @Singleton
+    @Provides
+    fun provideAppActivityLifecycleCallbacks(timer: UserSessionTimer) = AppActivityLifecycleCallbacks(timer)
+
 //    @Singleton
 //    @Provides
 //    fun provideUserSessionTimer(): UserSessionTimer = UserSessionTimer()
